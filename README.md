@@ -2,7 +2,7 @@
 
 ~
 
-[![Build Status](https://travis-ci.com/adria-stef/gopher-translator-service.svg?branch=main)](https://travis-ci.com/adria-stef/gopher-translator-service)
+[![Build Status](https://travis-ci.com/adria-stef/gopher-translator-service.svg?branch=main)](https://travis-ci.org/adria-stef/gopher-translator-service)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/adria-stef/gopher-translator-service/blob/main/LICENSE)
 
 ## Overview

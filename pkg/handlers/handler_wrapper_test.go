@@ -5,7 +5,6 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	"github.com/adria-stef/gopher-translator-service/pkg/handlers"
 	"github.com/adria-stef/gopher-translator-service/pkg/handlers/handlers_mocks"
 	"github.com/adria-stef/gopher-translator-service/pkg/model"
 	"github.com/go-resty/resty/v2"
@@ -149,7 +148,7 @@ var _ = Describe("HandlerWrapper", func() {
 	})
 })
 
-func createHandlerWrapperTestRouter(path string, translator handlers.Translator, history handlers.History, defaultHandler handlers.DefaultTranslatorHandler, handleFunc func(w http.ResponseWriter, r *http.Request, translator handlers.Translator, defaultHandler handlers.DefaultTranslatorHandler, history handlers.History)) *mux.Router {
+func createHandlerWrapperTestRouter(path string, translator Translator, history History, defaultHandler DefaultTranslatorHandler, handleFunc func(w http.ResponseWriter, r *http.Request, translator Translator, defaultHandler DefaultTranslatorHandler, history History)) *mux.Router {
 	router := mux.NewRouter()
 	router.HandleFunc(path, func(rw http.ResponseWriter, r *http.Request) {
 
@@ -159,7 +158,7 @@ func createHandlerWrapperTestRouter(path string, translator handlers.Translator,
 	return router
 }
 
-func createHandlerWrapperFuncTestRouter(path string, translator handlers.Translator, history handlers.History, defaultHandler handlers.DefaultTranslatorHandler, handleFunc func(translator handlers.Translator, defaultHandler handlers.DefaultTranslatorHandler, history handlers.History) func(rw http.ResponseWriter, r *http.Request)) *mux.Router {
+func createHandlerWrapperFuncTestRouter(path string, translator Translator, history History, defaultHandler DefaultTranslatorHandler, handleFunc func(translator Translator, defaultHandler DefaultTranslatorHandler, history History) func(rw http.ResponseWriter, r *http.Request)) *mux.Router {
 	router := mux.NewRouter()
 	router.
 		HandleFunc(path, handleFunc(translator, defaultHandler, history)).
